@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>checkbox</title>
+<style>
+    div { 
+        display: block;
+    }   
+    .splitlt {
+        height: 50%;
+        width: 30%;
+        background-color: aqua;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+    }
+    .splitr {
+        height: 100%;
+        width: 70%;
+        position: fixed;
+        right: 0;
+        top: 0px;
+    }
+    .splitlb{
+        height: 50%;
+        width: 30%;
+        bottom: 0px;
+        left: 0px;
+        position: fixed;
+        object-fit: contain;
+        background-color: aquamarine;
+    }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+	<style>
+		#map {position:absolute; top: 0; bottom: 0; left:0; right: 0;  }
+	</style>
+</head>
+<body>
+    <script>
+        function mapin() {
+            var map1 = L.map('map').setView([0,0],1);
+            L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=RM234QFDXeTVS0G8RUEl',
+            {attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',}).addTo(map1);
+            var markar = L.marker([51.5, -0.09]).addTo(map1);
+        }
+        function myFunction() {
+            if(vehicle1.checked == 1){
+                document.getElementById("map").style.display="block";
+                mapin();
+            }
+            else{
+                document.getElementById("map").style.display="none";
+                
+            }     
+            if(vehicle2.checked == 1){
+                document.getElementById("map2").style.display= "block";
+                document.getElementById("map2").innerHTML = "Option 2 checked";
+            }
+            else{
+                document.getElementById("map2").style.display= "none";
+            }  
+            if(vehicle3.checked == 1){
+                document.getElementById("text3").style.display="block";
+                document.getElementById("text3").innerHTML = "Option 3 checked";
+            }
+            else{
+                document.getElementById("text3").style.display="none";
+            }  
+        }
+    </script>
+    <div class="splitr">
+
+        <div id="map"></div>
+        <div id="map2"></div>
+        <div id="text3"></div>
+    </div>
+    <div class="splitlt">
+        This is top<br>
+        <input type="checkbox" id="vehicle1" name="option1" value="1" onclick="myFunction()">
+        <label for="vehicle1"> this is option 1</label><br>
+        <input type="checkbox" id="vehicle2" name="option2" value="2" onclick="myFunction()">
+        <label for="vehicle2"> this is option 2</label><br>
+        <input type="checkbox" id="vehicle3" name="option3" value="3" onclick="myFunction()">
+        <label for="vehicle3"> this is option 3</label><br>
+    </div>
+    <div class="splitlb">
+        <img src="image.png" alt="Population bar chart" width="100%" height="100%">
+    </div>
+
+</body>
+</html>
