@@ -1,0 +1,26 @@
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-left: 30%;
+}
+  
+.map-frame {
+    border: 2px solid black;
+    height: 100%;
+}
+  
+#map {
+    height: 100%;
+}
+
+
+.chart-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-right: 70%;
+    margin-top: 50%;
+}

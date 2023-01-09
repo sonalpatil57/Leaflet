@@ -1,0 +1,40 @@
+
+<div class="map-container" ng-controller="basicshowhidemap">
+    <div class="map-frame">
+        <div id="map" ng-model="showmap">{{optionsArray | json}}</div>
+    </div>
+</div>
+
+<!--
+<div class="checkbox">
+    <div>
+        <input type="checkbox" id="vehicle1" name="option1" value="1" onclick="myFunction()">
+        <label for="vehicle1"> This is option 1</label><br>
+        <img src="assets\img\filtering.png" height="20px" width="20px" title="Filter" onclick="filterico()">
+        <img src="assets\img\table.png" height="20px" width="20px" title="Show table" onclick="tableico()"><br>
+    </div>
+    <div>
+        <input type="checkbox" id="vehicle2" name="option2" value="2" onclick="myFunction()">
+        <label for="vehicle2"> This is option 2</label><br>
+        <img src="assets\img\filtering.png" height="20px" width="20px" title="Filter" onclick="filterico()">
+        <img src="assets\img\table.png" height="20px" width="20px" title="Show table" onclick="tableico()"><br>
+    </div>
+    <div>
+        <input type="checkbox" id="vehicle3" name="option3" value="3" onclick="myFunction()">
+        <label for="vehicle3"> This is option 3</label><br>
+        <img src="assets\img\filtering.png" height="20px" width="20px" title="Filter" onclick="filterico()">
+        <img src="assets\img\table.png" height="20px" width="20px" title="Show table" onclick="tableico()"><br>
+    </div>
+</div> -->
+
+
+<div class="form-check" *ngFor="let opt of options">
+    <input class="form-check-input" (change)="onChange(opt, $event.target!)"name="{{ opt }}" type="checkbox" id="{{opt}}">
+    <label class="form-check-label" for="{{opt}}">
+        {{opt}}
+    </label>
+</div>
+
+<div class="chart-container">
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+</div> 
