@@ -1,26 +1,83 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+header {
+    background-color: rgba(174, 229, 251, 0.896);
+    height: 60px;
+}
+header .title {
+    font-size: 20px;
+    padding: 10px;
+}
+main {
+    display: flex;
+    flex-grow: 1;
+}
+.left-bar {
+    width: 20%;
+    background-color: rgb(228, 228, 228);
+}
 .map-container {
-    position: absolute;
-    top: 0;
+    height: auto;
+    width: auto;
+    flex-grow: 1;
+}
+footer {
+    background-color: rgba(174, 229, 251, 0.896);
+    padding: 5px;
+    height: 30px;
+}
+
+.form-container {
+    display: flex;
+    top: 60px;
     left: 0;
     right: 0;
-    bottom: 0;
-    margin-left: 30%;
+    height: 50%;
+    width: 30%;
 }
-  
-.map-frame {
-    border: 2px solid black;
-    height: 100%;
-}
-  
-#map {
+
+.form-check {
     height: 100%;
 }
 
-
-.chart-container {
-    position: absolute;
+.chart-frame {
+    display: flex;
     left: 0;
+    bottom: 0; 
+    height: 100%;
+    z-index: inherit;
+}
+
+.button {
+    background-color: #1e77f4;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    font-size: 10px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+  
+.button:hover {
+    opacity: 1
+}
+
+.table-frame {
+    display:grid;
+    position: fixed;
+    background-color: white;
+    margin-bottom: 30px;
     bottom: 0;
-    margin-right: 70%;
-    margin-top: 50%;
+    right: 0;
+    width: 80%;
+    height:fit-content;
 }

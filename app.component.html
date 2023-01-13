@@ -1,40 +1,112 @@
-
-<div class="map-container" ng-controller="basicshowhidemap">
-    <div class="map-frame">
-        <div id="map" ng-model="showmap">{{optionsArray | json}}</div>
+<header>
+  <div class="title">Map Viewer - Openlayers & Angular</div>
+</header>
+<main>
+  <div class="left-bar">
+    <div class="form-container">
+      <div class="form-check">
+        <div *ngFor="let opt of options">
+          <input class="form-check-input" (change)="onChange(opt, $event.target!)"name="{{ opt }}" type="checkbox" id="{{opt}}">
+          <label class="form-check-label" for="{{opt}}">
+            {{opt}} 
+              <button *ngIf="visible1" class="button" (click)="onclick(opt, $event.target!)" type="button">{{ReadMore?"Show Table":"Hide Table"}}</button>
+          </label>
+        </div>
+      </div>
     </div>
-</div>
-
-<!--
-<div class="checkbox">
-    <div>
-        <input type="checkbox" id="vehicle1" name="option1" value="1" onclick="myFunction()">
-        <label for="vehicle1"> This is option 1</label><br>
-        <img src="assets\img\filtering.png" height="20px" width="20px" title="Filter" onclick="filterico()">
-        <img src="assets\img\table.png" height="20px" width="20px" title="Show table" onclick="tableico()"><br>
+    <div class="chart-frame">
+        <canvas  id="MyChart" >{{ chart }}</canvas>
     </div>
-    <div>
-        <input type="checkbox" id="vehicle2" name="option2" value="2" onclick="myFunction()">
-        <label for="vehicle2"> This is option 2</label><br>
-        <img src="assets\img\filtering.png" height="20px" width="20px" title="Filter" onclick="filterico()">
-        <img src="assets\img\table.png" height="20px" width="20px" title="Show table" onclick="tableico()"><br>
-    </div>
-    <div>
-        <input type="checkbox" id="vehicle3" name="option3" value="3" onclick="myFunction()">
-        <label for="vehicle3"> This is option 3</label><br>
-        <img src="assets\img\filtering.png" height="20px" width="20px" title="Filter" onclick="filterico()">
-        <img src="assets\img\table.png" height="20px" width="20px" title="Show table" onclick="tableico()"><br>
-    </div>
-</div> -->
+  </div>
+  <div id="map" class="map-container"></div>
 
 
-<div class="form-check" *ngFor="let opt of options">
-    <input class="form-check-input" (change)="onChange(opt, $event.target!)"name="{{ opt }}" type="checkbox" id="{{opt}}">
-    <label class="form-check-label" for="{{opt}}">
-        {{opt}}
-    </label>
-</div>
 
-<div class="chart-container">
-    <canvas  id="MyChart" >{{ chart }}</canvas>
-</div> 
+  
+  
+  <ng-container *ngIf="visible">
+    <div class="table-frame" id="info">&nbsp;</div>
+    <!--<div class="table-frame">
+      <table datatable [dtOptions]="dtOptions">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>Foo</td>
+          <td>Bar</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Someone</td>
+          <td>Youknow</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Iamout</td>
+          <td>Ofinspiration</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Yoda</td>
+          <td>Skywalker</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Patrick</td>
+          <td>Dupont</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Barack</td>
+          <td>Obama</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>François</td>
+          <td>Holland</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Michel</td>
+          <td>Popo</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Chuck</td>
+          <td>Norris</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Simon</td>
+          <td>Robin</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Louis</td>
+          <td>Lin</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Zelda</td>
+          <td>Link</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+-->
+  </ng-container>
+    
+ 
+</main>
+
+
+
+<footer>
+  Footer
+</footer>
